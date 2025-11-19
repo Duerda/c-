@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
-const biscoitoFechado = require('../assets/Biscoito.png');
-const biscoitoAberto = require('../assets/biscoitoAberto.png');
-
 // Imagens dos prêmios
 const imagem1 = require('../assets/jacquin.jpg');
 const imagem2 = require('../assets/michelin.jpg');
@@ -13,23 +10,21 @@ const imagem5 = require('../assets/traquinas.jpg');
 
 export default function Home({ navigation }) {
 
-  const [img, setImg] = useState(biscoitoFechado);
   const [numeroSorteado, setNumeroSorteado] = useState(null);
   const [premio, setPremio] = useState('');
   const [imagemPremio, setImagemPremio] = useState(null);
 
   // Array de prêmios
   const premios = [
-    { numero: 1, nome: "1", imagem: imagem1 },
-    { numero: 2, nome: "2", imagem: imagem2 },
-    { numero: 3, nome: "3", imagem: imagem3 },
-    { numero: 4, nome: "4", imagem: imagem4 },
-    { numero: 5, nome: "5", imagem: imagem5 }
+    { numero: 1, nome: "Viagem para Paris", imagem: imagem1 },
+    { numero: 2, nome: "Carro Novo", imagem: imagem2 },
+    { numero: 3, nome: "Casa Nova", imagem: imagem3 },
+    { numero: 4, nome: "Dinheiro Extra", imagem: imagem4 },
+    { numero: 5, nome: "Brinquedo Novo", imagem: imagem5 }
   ];
 
   // Função para sortear o número
   const sortearNumero = () => {
-    setImg(biscoitoAberto);
     const numero = Math.floor(Math.random() * 5) + 1;
     const premioSelecionado = premios.find(p => p.numero === numero);
     setNumeroSorteado(numero);
@@ -39,23 +34,21 @@ export default function Home({ navigation }) {
 
   // Função para resetar o sorteio
   const resetarSorteio = () => {
-    setImg(biscoitoFechado);
     setNumeroSorteado(null);
     setPremio('');
     setImagemPremio(null);
   };
- 
 
   return (
     <View style={estilos.container}>
-      <Image source={img} style={estilos.img} />
-
-      {numeroSorteado && (
+      {numeroSorteado ? (
         <>
-          <Text style={estilos.textoFrase}>Número sorteado: {numeroSorteado}</Text>
-          <Text style={estilos.textoFrase}>Prêmio: {premio}</Text>
+          <Text style={estilos.texto}>Número sorteado: {numeroSorteado}</Text>
+          <Text style={estilos.texto}>Prêmio: {premio}</Text>
           <Image source={imagemPremio} style={estilos.imgPremio} />
         </>
+      ) : (
+        <Text style={estilos.texto}>Clique em Sortear Número para começar!</Text>
       )}
 
       <TouchableOpacity style={estilos.botao} onPress={sortearNumero}>
@@ -85,6 +78,7 @@ export default function Home({ navigation }) {
   );
 }
 
+// Estilos
 const estilos = StyleSheet.create({
   container: {
     flex: 1,
@@ -92,29 +86,26 @@ const estilos = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#fff'
   },
-  img: {
-    width: 250,
-    height: 250,
-  },
   imgPremio: {
-    width: 150,
-    height: 150,
+    width: 200,
+    height: 200,
     marginTop: 20,
   },
-  textoFrase: {
-    fontSize: 18,
+  texto: {
+    fontSize: 20,
     color: '#dd7b22',
-    margin: 30,
-    fontStyle: 'italic',
-    textAlign: 'center'
+    margin: 20,
+    textAlign: 'center',
+    fontWeight: 'bold'
   },
   botao: {
     width: 200,
-    height: 45,
+    height: 50,
     backgroundColor: '#dd7b22',
     borderRadius: 25,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginTop: 10
   },
   btnTexto: {
     color: '#fff',
