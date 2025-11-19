@@ -16,11 +16,11 @@ export default function Home({ navigation }) {
 
   // Array de prêmios
   const premios = [
-    { numero: 1, nome: "1", imagem: imagem1 },
-    { numero: 2, nome: "2", imagem: imagem2 },
-    { numero: 3, nome: "3", imagem: imagem3 },
-    { numero: 4, nome: "4", imagem: imagem4 },
-    { numero: 5, nome: "5", imagem: imagem5 }
+    { numero: 1, nome: "Viagem para Paris", imagem: imagem1 },
+    { numero: 2, nome: "Carro Novo", imagem: imagem2 },
+    { numero: 3, nome: "Casa Nova", imagem: imagem3 },
+    { numero: 4, nome: "Dinheiro Extra", imagem: imagem4 },
+    { numero: 5, nome: "Brinquedo Novo", imagem: imagem5 }
   ];
 
   // Função para sortear o número
