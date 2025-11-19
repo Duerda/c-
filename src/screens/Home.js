@@ -16,11 +16,11 @@ export default function Home({ navigation }) {
 
   // Array de prêmios
   const premios = [
-    { numero: 1, nome: "Viagem para Paris", imagem: imagem1 },
-    { numero: 2, nome: "Carro Novo", imagem: imagem2 },
-    { numero: 3, nome: "Casa Nova", imagem: imagem3 },
-    { numero: 4, nome: "Dinheiro Extra", imagem: imagem4 },
-    { numero: 5, nome: "Brinquedo Novo", imagem: imagem5 }
+    { numero: 1, imagem: imagem1 },
+    { numero: 2, imagem2 },
+    { numero: 3, imagem3 },
+    { numero: 4, imagem4 },
+    { numero: 5, imagem5 }
   ];
 
   // Função para sortear o número
@@ -113,3 +113,4 @@ const estilos = StyleSheet.create({
     fontSize: 16
   }
 });
+
